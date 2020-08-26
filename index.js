@@ -15,12 +15,12 @@ inquirer.prompt([
     },
     {
         type: "input",
-        message: "What is the installation of the application?",
+        message: "What are the installation instructions?",
         name: "installation"
     },
     {
         type: "input",
-        message: "What is the usage?",
+        message: "What is the usage information?",
         name: "usage"
     },
     {
@@ -30,23 +30,35 @@ inquirer.prompt([
     },
     {
         type: "input",
-        message: "Credits?",
-        name: "credits"
+        message: "What are the contribution guidelines?",
+        name: "contributing"
     },
     {
         type: "input",
-        message: "What is the usage?",
-        name: "usage"
+        message: "What are the testing instructions?",
+        name: "tests"
+    },
+    {
+        type: "input",
+        message: "What is your GitHub username?",
+        name: "username"
+    },
+    {
+        type: "input",
+        message: "What is your email?",
+        name: "email"
     }
 ]).then(answers => {
     console.log(answers)
 
-    let readme = " ";
+    let readme = "# " + answers.title;
 
     fs.writeFile("README.md", readme, err => {
         if (err) {
             return console.log(err)
         }
     })
+
+
 })
 
