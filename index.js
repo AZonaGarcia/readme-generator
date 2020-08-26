@@ -51,7 +51,37 @@ inquirer.prompt([
 ]).then(answers => {
     console.log(answers)
 
-    let readme = "# " + answers.title;
+    let readme =
+`# ${answers.title}
+# ${answers.license}
+
+## Description
+${answers.description}
+
+## Table Of Contents
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
+
+## Questions
+* [Username](${answers.username})
+* [Email](${answers.email})
+
+## Installation
+${answers.installation}
+
+## Usage
+${answers.usage}
+
+## Contributing
+${answers.contributing}
+
+## Tests
+${answers.tests}`
+
+
 
     fs.writeFile("README.md", readme, err => {
         if (err) {
